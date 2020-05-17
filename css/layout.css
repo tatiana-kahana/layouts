@@ -1,0 +1,151 @@
+/* developer list default layout */
+#devs ul{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    --columns: 2;
+}
+/* grid system -- mobile first */
+main, .flex-box {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  --columns: 16;
+}
+
+.flex-box {
+    align-items: baseline;
+}
+
+section,
+#inside article,
+#inside aside,
+#devs li,
+#table article,
+#table aside,
+.flex-item1,
+.flex-item2 {
+    --width: 16;
+    --gap-constant: 0.3%;
+	--initialbasis: calc(var(--width, 0) / var(--columns, 16) * 100%);
+    --gap: calc((var(--columns, 16) - var(--width, 0)) * var(--gap-constant, 0.3%));
+	flex-basis: calc(var(--initialbasis) - var(--gap));
+}
+
+#devs li {
+    --width: 1;
+    --gap-constant: 3%;
+}
+
+@media (min-width: 760px) {
+    main {
+        --columns: 11;
+        flex-flow: row nowrap;
+    }
+
+    #first {
+        --width: 5;
+        order: 1;
+    }
+    #main {
+        --width: 6;
+        order: 2;
+    }
+    #devs{
+        --width: 11;
+        order: 3;
+    }
+    #devs ul {
+        --columns: 5;
+    }
+    #resources {
+        --width: 11;
+        order: 4;
+    }
+
+    .floatleft {
+        float: left;
+        margin: 0 1rem 1rem 0;
+    }
+    .floatright {
+        float: right;
+        margin: 0 0 1rem 1rem;
+    }
+    #inside article {
+        --width: 7;
+    }
+    #inside aside {
+        --width: 4;
+    }
+
+   /* form */
+   main .flex-box {
+    --columns: 11;
+    flex-flow: row wrap;
+    }
+    .flex-item1 {
+        --width: 3;
+    }
+
+    .flex-item2{
+        --width: 8;
+    }
+   
+}
+@media (min-width: 950px){
+
+    main {
+        --columns: 14;
+        flex-flow: row wrap;
+
+    }
+
+    #devs{
+        --width: 14;
+        order: 4;
+    }
+    #resources {
+        --width: 3;
+        order: 3;
+    }
+    #inside article {
+        --width: 10;
+    }
+    #inside aside {
+        --width: 4;
+    }
+
+    #inside #table article {
+        --width: 14;
+    }
+
+    #inside #table aside {
+        --width: 14;
+    }
+}
+@media (min-width: 1200px) {
+    #devs ul {
+       --columns: 1;
+    }
+    main {
+        --columns: 16;
+    }
+    #devs{
+        --width: 2;
+        order: 3;
+    }
+    #resources {
+        --width: 3;
+        order: 4;
+    }
+    #inside article,
+    #inside #table article {
+        --width: 12;
+    }
+
+    #inside aside,
+    #inside #table aside {
+        --width: 4;
+    }
+
+}
